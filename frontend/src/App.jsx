@@ -18,17 +18,17 @@ function App() {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/dashboard")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/dashboard")
       .then((res) => res.json())
       .then((data) => setDashboard(data))
       .catch((err) => console.log("Backend error:", err));
 
-    fetch("http://localhost:5000/api/predict-all")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/predict-all")
       .then((res) => res.json())
       .then((data) => setAiSummary(data.summary))
       .catch((err) => console.log("AI error:", err));
 
-    fetch("http://localhost:5000/api/notifications")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/notifications")
       .then((res) => res.json())
       .then((data) => setNotifications(data))
       .catch((err) => console.log("Notifications error:", err));
