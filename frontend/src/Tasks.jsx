@@ -10,13 +10,13 @@ function Tasks() {
   }, []);
 
   function fetchTasks() {
-    fetch("http://localhost:5000/api/tasks")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }
 
   function addTask() {
-    fetch("http://localhost:5000/api/tasks", {
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ task_name: taskName, description: description, status: "Pending" }),
@@ -30,14 +30,14 @@ function Tasks() {
   }
 
   function deleteTask(id) {
-    fetch(`http://localhost:5000/api/tasks/${id}`, {
+    fetch(`https://employee-onboarding-system-5sgp.onrender.com/api/tasks/${id}`, {
       method: "DELETE",
     }).then(() => fetchTasks());
   }
 
   // Phase 2 — update task status
   function updateStatus(id, newStatus) {
-    fetch(`http://localhost:5000/api/tasks/${id}`, {
+    fetch(`https://employee-onboarding-system-5sgp.onrender.com/api/tasks/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: newStatus }),

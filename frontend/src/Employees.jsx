@@ -13,14 +13,14 @@ function Employees() {
   }, []);
 
   function fetchEmployees() {
-    fetch("http://localhost:5000/api/employees")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/employees")
       .then((res) => res.json())
       .then((data) => setEmployees(data));
   }
 
   // Phase 2 — fetch AI predictions for all employees
   function fetchPredictions() {
-    fetch("http://localhost:5000/api/predict-all")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/predict-all")
       .then((res) => res.json())
       .then((data) => {
         // Turn the array into an object like { 1: {...}, 2: {...} }
@@ -35,7 +35,7 @@ function Employees() {
   }
 
   function addEmployee() {
-    fetch("http://localhost:5000/api/employees", {
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/employees", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: name, department: department, status: "Pending" }),
@@ -50,7 +50,7 @@ function Employees() {
   }
 
   function deleteEmployee(id) {
-    fetch(`http://localhost:5000/api/employees/${id}`, {
+    fetch(`https://employee-onboarding-system-5sgp.onrender.com/api/employees/${id}`, {
       method: "DELETE",
     }).then(() => {
       fetchEmployees();

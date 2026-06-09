@@ -12,15 +12,15 @@ function Progress() {
   }, []);
 
   function fetchAll() {
-    fetch("http://localhost:5000/api/employees")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/employees")
       .then((res) => res.json())
       .then((data) => setEmployees(data));
 
-    fetch("http://localhost:5000/api/tasks")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
 
-    fetch("http://localhost:5000/api/progress")
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/progress")
       .then((res) => res.json())
       .then((data) => setProgress(data));
   }
@@ -30,7 +30,7 @@ function Progress() {
       alert("Please select both an employee and a task!");
       return;
     }
-    fetch("http://localhost:5000/api/progress", {
+    fetch("https://employee-onboarding-system-5sgp.onrender.com/api/progress", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -48,7 +48,7 @@ function Progress() {
   }
 
   function updateProgress(id, newStatus) {
-    fetch(`http://localhost:5000/api/progress/${id}`, {
+    fetch(`https://employee-onboarding-system-5sgp.onrender.com/api/progress/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: newStatus }),
